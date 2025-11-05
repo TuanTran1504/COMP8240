@@ -77,30 +77,29 @@ Override with `--data-root /path/to/data`
 ### 🧩 CIFAR-10 / CIFAR-100
 Baseline (ERM, no Mixup):
 ```bash
-python -u train2.py --model ResNet18_CIFAR10 --dataset CIFAR10   --adjustlr 100-150 --lr 0.1 --alpha 0 --seed 42 --name ResNet_C10 --amp
+python -u train.py --model ResNet18_CIFAR10 --dataset CIFAR10   --adjustlr 100-150 --lr 0.1 --alpha 0 --seed 42 --name ResNet_C10 
 ```
 
 Mixup (α = 1.0):
 ```bash
-python -u train2.py --model ResNet18_CIFAR10 --dataset CIFAR10   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_C10_Mixup --amp
+python -u train.py --model ResNet18_CIFAR10 --dataset CIFAR10   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_C10_Mixup 
 ```
 
 CIFAR-100:
 ```bash
-python -u train2.py --model ResNet18_CIFAR100 --dataset CIFAR100   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_C100_Mixup --amp
+python -u train.py --model ResNet18_CIFAR100 --dataset CIFAR100   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_C100_Mixup
 ```
 
 ### 👕 Fashion-MNIST
-> FMNIST is fixed to single-channel input (1 ch).
 
 ```bash
-python -u train2.py --model ResNet18_FMNIST --dataset FASHIONMNIST   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_FMNIST --amp
+python -u train.py --model ResNet18_FMNIST --dataset FASHIONMNIST   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_FMNIST 
 ```
 
 ### 🎧 Speech Commands
 VGG11 (spectrogram-level Mixup):
 ```bash
-python -u train2.py --model VGG11 --dataset COMMAND   --lr 0.001 --alpha 1.0 --epoch 30 --batch-size 128 --seed 42   --name VGG11_Commands --amp
+python -u train.py --model VGG11 --dataset COMMAND   --lr 0.001 --alpha 1.0 --epoch 30 --batch-size 128 --seed 42   --name VGG11_Commands
 ```
 
 ---
@@ -118,19 +117,6 @@ Results align closely with the Mixup paper; small deviations arise from hardware
 
 ---
 
-## 🔁 Reproducibility Notes
-
-- Deterministic training with `--seed ≠ 0`
-  - Seeds set for Python, NumPy, and PyTorch
-  - `cudnn.deterministic = True`, `cudnn.benchmark = False`
-- Mixed precision uses:
-  ```python
-  with torch.amp.autocast(device_type="cuda", enabled=args.amp):
-  ```
-- LR schedule: milestones controlled via `--adjustlr` (e.g., `100-150`)
-
----
-
 ## 📁 Logs & Checkpoints
 
 | Output | Path |
@@ -145,8 +131,6 @@ Results align closely with the Mixup paper; small deviations arise from hardware
 - **Mixup:** Zhang *et al.* (ICLR 2018)  
 - **CIFAR, Fashion-MNIST, Speech Commands:** via `torchvision`  
 - PreAct ResNet structure adapted from open-source examples (MIT/BSD)  
-- See `THIRD_PARTY_NOTICES.md` and `LICENSE` for full details  
-
 ---
 
 ## 🧾 Citation
@@ -172,7 +156,6 @@ If you use this project, please cite:
 | **CUDA not detected** | verify PyTorch CUDA build matches driver |
 | **FMNIST channel mismatch** | repo fixed to 1-channel; use `ResNet18_FMNIST` |
 | **No output** | run with `-u` flag and check `results/` for CSV logs |
-
 ---
 
 ## 📄 License
