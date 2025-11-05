@@ -1,0 +1,11 @@
+__pycache__
+/checkpoint
+/data
+/frames
+/hand_gesture
+/result
+/spectrograms
+visualize.py
+sample_mixup_data.py
+/YOLOV5S
+training_script.txt
