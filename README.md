@@ -1,11 +1,11 @@
-# 🧠 Mixup Reproduction & Extension
+#Mixup Reproduction & Extension
 
 This project reproduces and extends the results of **Mixup: Beyond Empirical Risk Minimization** (Zhang et al., 2018).  
 It replicates the original experiments on **CIFAR-10**, **CIFAR-100**, and **Speech Commands**, and further tests Mixup on **Fashion-MNIST** to evaluate its generalization performance on unseen data.
 
 ---
 
-## 🚀 Features
+##Features
 
 - Full reproduction of Mixup experiments for image and audio classification  
 - Implementations of **ResNet-18 (PreAct)**, **Wide-ResNet-28-10**, and **VGG11**  
@@ -16,7 +16,7 @@ It replicates the original experiments on **CIFAR-10**, **CIFAR-100**, and **Spe
 
 ---
 
-## 🧱 Project Structure
+##Project Structure
 
 ```
 mixup/
@@ -34,7 +34,7 @@ mixup/
 
 ---
 
-## 🛠️ Tech Stack
+##Tech Stack
 
 | Component      | Library/Framework                    |
 |----------------|--------------------------------------|
@@ -47,9 +47,9 @@ mixup/
 
 ---
 
-## ⚙️ Setup
+##Setup
 
-### 🧩 Environment Setup
+### Environment Setup
 
 ```bash
 conda create -n mixup python=3.10 -y
@@ -60,7 +60,7 @@ pip install numpy tqdm matplotlib pyyaml
 
 ---
 
-## 📦 Datasets
+## Datasets
 
 - **CIFAR-10 / CIFAR-100**: Auto-downloaded via `torchvision.datasets`
 - **Fashion-MNIST**: Drop-in grayscale benchmark (fixed 1-channel)
@@ -72,9 +72,9 @@ Override with `--data-root /path/to/data`
 
 ---
 
-## ▶️ Quickstart
+## Quickstart
 
-### 🧩 CIFAR-10 / CIFAR-100
+### CIFAR-10 / CIFAR-100
 Baseline (ERM, no Mixup):
 ```bash
 python -u train.py --model ResNet18_CIFAR10 --dataset CIFAR10   --adjustlr 100-150 --lr 0.1 --alpha 0 --seed 42 --name ResNet_C10 
@@ -90,13 +90,13 @@ CIFAR-100:
 python -u train.py --model ResNet18_CIFAR100 --dataset CIFAR100   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_C100_Mixup
 ```
 
-### 👕 Fashion-MNIST
+### Fashion-MNIST
 
 ```bash
 python -u train.py --model ResNet18_FMNIST --dataset FASHIONMNIST   --adjustlr 100-150 --lr 0.1 --alpha 1.0 --seed 42 --name ResNet_FMNIST 
 ```
 
-### 🎧 Speech Commands
+### Speech Commands
 VGG11 (spectrogram-level Mixup):
 ```bash
 python -u train.py --model VGG11 --dataset COMMAND   --lr 0.001 --alpha 1.0 --epoch 30 --batch-size 128 --seed 42   --name VGG11_Commands
@@ -104,7 +104,7 @@ python -u train.py --model VGG11 --dataset COMMAND   --lr 0.001 --alpha 1.0 --ep
 
 ---
 
-## 📊 Results Summary
+## Results Summary
 
 | Dataset | Model | ERM (Test Err %) | Mixup (Test Err %) | Observation |
 |----------|--------|------------------|--------------------|--------------|
@@ -117,7 +117,7 @@ Results align closely with the Mixup paper; small deviations arise from hardware
 
 ---
 
-## 📁 Logs & Checkpoints
+## Logs & Checkpoints
 
 | Output | Path |
 |---------|------|
@@ -126,14 +126,14 @@ Results align closely with the Mixup paper; small deviations arise from hardware
 
 ---
 
-## 📘 Acknowledgments & Licenses
+## Acknowledgments & Licenses
 
 - **Mixup:** Zhang *et al.* (ICLR 2018)  
 - **CIFAR, Fashion-MNIST, Speech Commands:** via `torchvision`  
 - PreAct ResNet structure adapted from open-source examples (MIT/BSD)  
 ---
 
-## 🧾 Citation
+## Citation
 
 If you use this project, please cite:
 
@@ -148,7 +148,7 @@ If you use this project, please cite:
 
 ---
 
-## 🧩 Troubleshooting
+## Troubleshooting
 
 | Issue | Solution |
 |--------|-----------|
