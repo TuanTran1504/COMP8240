@@ -20,7 +20,7 @@ It replicates the original experiments on **CIFAR-10**, **CIFAR-100**, and **Spe
 
 ```
 mixup/
-├── train2.py                 # Unified trainer for classification + Mixup
+├── train.py                 # Unified trainer for classification + Mixup
 ├── models/
 │   └── resnet.py             # ResNet18_* architectures with PreAct blocks
 ├── command_dataset.py        # Speech Commands loader (16 kHz → spectrograms)
